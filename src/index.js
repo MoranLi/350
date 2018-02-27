@@ -8,11 +8,11 @@ class Home extends React.Component {
             <div id="page-wrap">
         		<nav>
         			<ul>
-          				<li id="icon"><a href="home.html"><img src="./images/atom-logo.png" alt="logo"/></a></li>
-          				<a href="checkout.html"><li id="cart"><img src="./images/Icons/icon_cart.png" alt="cart"/></li></a>
+          				<li id="icon"><a href="home.html"><img src="images/atom-logo.png" alt="logo"/></a></li>
+          				<a href="checkout.html"><li id="cart"><img src="images/Icons/icon_cart.png" alt="cart"/></li></a>
           				<li class="menu-item"><a href="#contact">Contact</a></li>
           				<li class="menu-item"><a href="#store">Store</a></li>
-          				<li class="menu-item"><a href="about.html">About</a></li>
+          				<li class="menu-item"><a href="#about">About</a></li>
           				<li id="underline"></li>
         			</ul>
         		</nav>
@@ -36,9 +36,9 @@ class Home extends React.Component {
            		<div class="footer"> 
            			<ul class="footer-list">
         				<li id="follow">Follow Us:</li>
-        				<li class="social"><a href="#facebook"><img src="./images/Icons/icon_facebook.png" alt="facebook"/></a></li>
-        				<li class="social"><a href="#twitter"><img src="./Images/Icons/icon_twitter.png" alt="twitter"/></a></li>
-        				<li class="social"><a href="#google"><img src="./Images/Icons/icon_google.png" alt="google"/></a></li>
+        				<li class="social"><a href="#facebook"><img src="images/Icons/icon_facebook.png" alt="facebook"/></a></li>
+        				<li class="social"><a href="#twitter"><img src="images/Icons/icon_twitter.png" alt="twitter"/></a></li>
+        				<li class="social"><a href="#google"><img src="images/Icons/icon_google.png" alt="google"/></a></li>
         				<li class="footer-menu-item"><a href="#contact">Contact</a></li>
         				<li class="footer-menu-item"><a href="#store">Store</a></li>
         				<li class="footer-menu-item"><a href="#about">About</a></li>
@@ -52,6 +52,4 @@ class Home extends React.Component {
   }
 }
 
-
 ReactDOM.render(<Home />, document.getElementById('root'));
-
