@@ -1,3 +1,4 @@
+
 body {
 	background: #CCCCCC;
 	margin: 0;
@@ -90,10 +91,10 @@ nav {
 
 .header-banner {
 	position: relative;
-	background-image: url("./images/Banners/header-banner-home.jpg");
+	background-image: url("../images/Banners/header_banner_store.jpg");
 	background-size: 100% auto;
 	background-repeat: no-repeat;
-	background-position: center top;
+	background-position: center top bottom;
 	background-color: rgba(255,0,0,0);
 	text-align: center;
 }
@@ -101,7 +102,7 @@ nav {
 .banner-text-heading {
    color: #FFFFFF;
    font-size: 32pt;
-   padding: 13% 0 0 0;
+   padding: 13% 0 4% 0;
 }
 
 .banner-text {
@@ -132,6 +133,16 @@ nav {
 	background-color:#EEEEEE;
 }
 
+.feature-main-text {
+    text-align: center;
+    padding-top:6.5%;
+    padding-bottom: 1%;
+    font-size: 15pt;
+    color: black;
+	padding-left:20%;
+	padding-right:20%
+}
+
 .feature-text {
     text-align: center;
     padding-top:6.5%;
@@ -159,6 +170,16 @@ nav {
 	margin-bottom: 2%;
 	background-color: #FFFFFF;
 	
+}
+
+.feature-empty {
+	float: left;
+	height: 410px;
+	width: 290px;
+	margin-right: auto;
+	margin-left: 1.75%;
+	margin-bottom: 2%;
+	background-color: #EEEEEE;
 }
 
 .feature-box img {
@@ -194,7 +215,7 @@ nav {
 
 .footer-banner {
 	position: relative;
-	background-image: url("./images/Banners/footer-banner-home.jpg");
+	background-image: url("../images/Banners/footer-banner-store.jpg");
 	background-size: 100% auto;
 	background-repeat: no-repeat;
 	background-position: center top;
@@ -256,3 +277,19 @@ nav {
     text-decoration: none;
 }
 
+h2{
+	text-align:center;
+	float:inherit;
+}
+
+.feature-1{
+	border:hidden;
+}
+
+.feature-2{
+	border:hidden;
+}
+
+.feature-3{
+	border:hidden;
+}
