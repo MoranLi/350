@@ -44,9 +44,7 @@ class Home extends React.Component {
         				<li class="footer-menu-item"><a href="#about">About</a></li>
         			</ul>
         			<p>&#x40; 2016 Atom Ltd. All Rights Reserved.</p>
-           		
            		</div>
-        	
         	</div>
         );
   }
