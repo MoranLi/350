@@ -1,10 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './about.css';
-import Header from './component/header.js';
-import Footer from './component/footer.js';
+import Header from './partials/header.js';
+import Footer from './partials/footer.js';
 
-class About extends React.Component {
+export default class About extends React.Component {
     render() {
         return (
         <div id="page-wrap">
@@ -32,6 +31,7 @@ class About extends React.Component {
 	   					<div class="feature-box-text"> Conveniently implement seamless users.</div>
 	   				</div>
 	   			</div> 
+	   			<div class="clearboth"></div>
 	   			<div class="feature-title">What does the future hold?</div>
 	   			<div class="feature-text-bottom"><p>Collaboratively maximize cross-media channels after unique vortals. Professionally enable standardized testing procedures after excellent
 	   				alignments. Continually reconceptualize fully tested e-commerce rather than e-business e-markets. Conveniently engage focused
@@ -49,5 +49,4 @@ class About extends React.Component {
   }
 }
 
-ReactDOM.render(<About />, document.getElementById('root'));
             

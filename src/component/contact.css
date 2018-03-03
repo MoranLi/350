@@ -14,7 +14,7 @@ underline {
 
 .header-banner {
 	position: relative;
-	background-image: url("../images/Banners/header-banner-contact.jpg");
+	background-image: url("/images/Banners/header-banner-contact.jpg");
 	background-size: 100% auto;
 	background-repeat: no-repeat;
 	background-position: center top;
@@ -71,7 +71,7 @@ underline {
 }
 
 
-.feature-box-text-adjust img {
+.feature-box-text-adjust a img {
 	display: inline-block;
 	width: 32px;
 	height: 32px;
@@ -165,7 +165,7 @@ textarea {
 
 .footer-banner {
 	position: relative;
-	background-image: url("../images/Banners/footer-banner-contact.jpg");
+	background-image: url("/images/Banners/footer-banner-contact.jpg");
 	background-size: 100% auto;
 	background-repeat: no-repeat;
 	background-position: center top;

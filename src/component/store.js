@@ -1,10 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './store.css';
-import Header from './component/header.js';
-import Footer from './component/footer.js';
+import Header from './partials/header.js';
+import Footer from './partials/footer.js';
 
-class Store extends React.Component {
+export default class Store extends React.Component {
     render() {
         return (
 	        <div id="page-wrap">
@@ -21,5 +20,3 @@ class Store extends React.Component {
     	);
   }
 }
-
-ReactDOM.render(<Store />, document.getElementById('root'));

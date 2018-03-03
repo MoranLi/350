@@ -1,33 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import Header from './component/header.js'
-import Footer from './component/footer.js'
+import { BrowserRouter, Route } from 'react-router-dom';
 
-class Home extends React.Component {
-    render() {
-        return (
-            <div id="page-wrap">
-        	    <Header />
-        		<div class="header-banner">
-              		  <div class="banner-text-heading">New fall devices have arrived.</div>
-        		      <div class="banner-text"> Teach, learn, and create with Strawberry Pi.</div>
-              		  <button type="button">Start Shopping</button>
-           		</div> 
-           		<div class="feature">
-           		  <div class="feature-text">Most Popular Products</div>
-        		  <script src="./scripts/containerBuilder.js"></script> 
-          		</div>
-        		<div class="clearboth"></div>
-        
-         		<div class="footer-banner">
-           			<div class="banner-text-heading">You could say it's our jam.</div>
-              			<div class="banner-text"> <p>Learn more about why we do what we do. </p> </div>	
-           		</div>
-           		<Footer />
-        	</div>
-        );
-  }
-}
+import About from './component/about.js';
+import Home from './component/home.js';
+import Contact from './component/contact.js';
+import Store from './component/store.js';
 
-ReactDOM.render(<Home />, document.getElementById('root'));
+
+
+ReactDOM.render((
+    <BrowserRouter>
+        <div>
+            <Route path= "/home" component= {Home}/>
+            <Route path= "/about" component= {About}/>
+            <Route path= "/contact" component= {Contact}/>
+            <Route path= "/store" component= {Store}/>
+        </div>
+    </BrowserRouter>
+), document.getElementById('root'));
