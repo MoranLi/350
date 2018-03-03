@@ -1,0 +1,52 @@
+.footer {
+	height: 50px;
+	background-color: #FFFFFF;
+	padding: 30px 30px;
+}
+
+.footer p {
+	float: left;
+	bottom: 5%;
+}
+
+.footer-list {
+	list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+	
+}
+
+#follow {
+	margin-top: 5px;
+	width: 80px;
+	display: block;
+    float: left;
+}
+
+.social {
+	width: 36px;
+	display: block;
+    float: left;
+}
+
+
+.social img {
+	margin: 0 auto;
+	width: 32px;
+	height: 32px;
+}
+
+.footer-menu-item {
+    width: 60px;
+    display: block;
+    float: right;
+    text-align: center;
+    margin-left: 16px;
+  
+}
+
+
+.footer-menu-item a {
+    color: #666;
+    text-decoration: none;
+}
