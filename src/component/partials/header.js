@@ -11,6 +11,7 @@ export default class Header extends React.Component {
           			<li class="menu-item"><a href="/contact">Contact</a></li>
           			<li class="menu-item"><a href="/store">Store</a></li>
           			<li class="menu-item"><a href="/about">About</a></li>
+					<li class="menu-item"><a href="/login">Login</a></li>
           			<li id="underline"></li>
         		</ul>
         	</nav>

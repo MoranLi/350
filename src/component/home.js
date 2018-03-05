@@ -1,5 +1,5 @@
 import React from 'react';
-import './home.css';
+import './home.css'
 import homeheader from '../images/Banners/header-banner-home.jpg';
 import homefooter from '../images/Banners/footer-banner-home.jpg';
 import Header from './partials/header.js';

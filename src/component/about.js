@@ -1,5 +1,5 @@
 import React from 'react';
-import './about.css';
+import './about.css'
 import aboutheader from '../images/Banners/header-banner-about.jpg';
 import aboutfooter from '../images/Banners/footer-banner-about.jpg';
 import Header from './partials/header.js';

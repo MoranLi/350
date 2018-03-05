@@ -1,5 +1,6 @@
 import React from 'react';
-import './store.css';
+
+import './store.css'
 import Header from './partials/header.js';
 import Footer from './partials/footer.js';
 

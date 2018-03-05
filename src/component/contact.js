@@ -1,5 +1,5 @@
 import React from 'react';
-import './contact.css';
+import './contact.css'
 import contactheader from '../images/Banners/header-banner-contact.jpg';
 import contactfooter from '../images/Banners/footer-banner-contact.jpg';
 import Header from './partials/header.js';
