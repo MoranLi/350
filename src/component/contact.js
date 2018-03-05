@@ -1,5 +1,7 @@
 import React from 'react';
 import './contact.css';
+import contactheader from '../images/Banners/header-banner-contact.jpg';
+import contactfooter from '../images/Banners/footer-banner-contact.jpg';
 import Header from './partials/header.js';
 import Footer from './partials/footer.js';
 
@@ -8,7 +10,7 @@ export default class Contact extends React.Component {
         return (
             	<div id="page-wrap">
 					<Header />
-					<div class="header-banner">
+					<div class="header-banner" style={{backgroundImage: "url(" + contactheader + ")"}}>
 			      		<div class="banner-text-heading">
 			      			Let's get the conversation started.
 			      		</div>
@@ -19,7 +21,7 @@ export default class Contact extends React.Component {
 			   				Completely re-engineer excellent e-commerce rather.
 			   			</div>
 			   			<div class="feature-container">
-			   				<div class="feature-box">
+			   				<div class="feature-box"  style={{ height: '320px' }}>
 			   					<div class="feature-box-model">
 			   						<p>Call Us</p>
 			   					</div>
@@ -27,11 +29,11 @@ export default class Contact extends React.Component {
 			   						<p class="feature-box-text-adjust">123 (456) - 7890</p>
 			   					</div>
 			   				</div>
-							<div class="feature-box">
+							<div class="feature-box"  style={{ height: '320px' }}>
 			   					<div class="feature-box-model"><p>Visit Us</p></div>
 			   					<div class="feature-box-text"><p>42 Wallaby Way</p>Saskatoon SK 12345</div>
 			   				</div>
-			   				<div class="feature-box">
+			   				<div class="feature-box"  style={{ height: '320px' }}>
 			   					<div class="feature-box-model">
 			   						<p>Follow Us</p>
 			   					</div>
@@ -61,7 +63,7 @@ export default class Contact extends React.Component {
 			  			<input type="submit" value="Send Message"></input>
 					</form>
 			   		
-			   		<div class="footer-banner">
+			   		<div class="footer-banner" style={{backgroundImage: "url(" + contactfooter + ")"}}>
 			   			<div class="footer-banner-text-heading">Don't forget to follow us on social media.</div>
 			      			<div class="footer-banner-text">It's ok, we encourage you to stalk us.</div>
 			   		</div> 

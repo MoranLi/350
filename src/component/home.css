@@ -5,7 +5,7 @@ body {
 	font-family: Helvetica;
 }
 
-@media {
+@media (max-width: 1440px) {
 	#page-wrap {
 		 background: #EEEEEE;
 		 width: 100%;

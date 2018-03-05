@@ -6,6 +6,7 @@ import About from './component/about.js';
 import Home from './component/home.js';
 import Contact from './component/contact.js';
 import Store from './component/store.js';
+import HomeStyle from './component/home.css';
 
 
 
