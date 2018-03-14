@@ -25,7 +25,7 @@ export default class Regsister extends React.Component {
         <Header/>
           <div>
             <div className="login">Register</div>
-            <input type="text" id="newusername" placeholder="username"/>
+            <input type="text" id="newusername" placeholder="email"/>
             <br/>
             <input type="password" id="newpassword" placeholder="password"/>
             <div className="login">
