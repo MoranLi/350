@@ -57,7 +57,7 @@ export default class Contact extends React.Component {
 			   		</div> 
 			   		<form>			
 						<div><label>Name *</label> <label id="email-label">Email Address *</label>
-			  			<input type="text"/> <input type="email"/></div>
+			  			<input type="text" style={{marginLeft: 0}}/> <input type="email"/></div>
 			  			<div><label>Message </label>
 			  			<textarea></textarea></div>
 			  			<input type="submit" value="Send Message"></input>

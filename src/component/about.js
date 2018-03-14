@@ -10,7 +10,7 @@ export default class About extends React.Component {
         return (
         <div id="page-wrap">
 			<Header />
-			<div className="header-banner"  style={{backgroundImage: "url(" + aboutheader + ")"}}>
+				<div className="header-banner"  style={{backgroundImage: "url(" + aboutheader + ")"}}>
 	      		  <div class="banner-text-heading">Learn a bit about us.</div>
 	   		</div> 
 	   		<div class="feature">
