@@ -8,11 +8,12 @@ var config = {
   storageBucket: "project-407f3.appspot.com",
   messagingSenderId: "874447698406"
 };
-firebase.initializeApp(config);
 
-const app = initializeApp(config)
+const app = firebase.initializeApp(config);
 const db = app.database()
 
-export const itemsDB = db.ref('/items')
-export const authService = app.auth()
-export const storageDB = app.storage().ref()
+const itemsDB = db.ref('/items')
+const authService = app.auth()
+const storageDB = app.storage().ref()
+
+export default {itemsDB, authService, storageDB}

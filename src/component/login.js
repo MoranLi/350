@@ -3,7 +3,7 @@ import './login.css'
 import Header from './partials/header.js';
 import Footer from './partials/footer.js';
 
-export default class Home extends React.Component {
+export default class Login extends React.Component {
   render(){
     return (
       <div id="page-wrap">
