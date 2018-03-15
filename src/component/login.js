@@ -3,35 +3,50 @@ import './login.css'
 import Header from './partials/header.js';
 import Footer from './partials/footer.js';
 import firebaseService from '../firebase.conf.js'
+/*
+class Loginmessage extends React.Component {
 
-class loginMessage extends React.Component {
-
-  getName(){
-    return this.props.name
+  constructor(props) {
+    super(props);
+    this.changemode = this.props.changemode
   }
 
-  getFunction(){
-    return this.props.function
+  signout(){
+    alert("start sign out")
+    firebaseService.authService.signOut().then(function(){
+      alert("sign out success")
+      this.props.changemode(false)
+    }).catch(function(err){
+      alert(err)
+    })
   }
 
   render(){
     return (
       <div>
         <p> Welcome, {this.getName()} </p>
-        <button onClick={()=> this.getFunction()} > Signout </button>
+        <button onClick={()=> this.signout()} > Signout </button>
       </div>
     )
   }
 }
 
-class login extends React.Component {
+class Logininput extends React.Component {
 
-  getName(){
-    return this.props.name
-  }
-
-  getFunction(){
-    return this.props.function
+  signin(){
+    var new_username = document.getElementById("username").value;
+    var new_password = document.getElementById("password").value;
+    if(new_username === undefined || new_password === undefined){
+      alert("please enter both email and password");
+    }
+    else{
+      firebaseService.authService.signInWithEmailAndPassword(new_username,new_password).then(function(){
+        alert('signin success')
+        this.props.changemode(true)
+      }).catch(function(err){
+        alert(err);
+      })
+    }
   }
 
   render(){
@@ -51,15 +66,28 @@ class login extends React.Component {
     )
   }
 }
-
+*/
 export default class Login extends React.Component {
 
+  state = {
+    isSignin: ""
+  }
+
+  changeState(state){
+    this.setState({
+      isSignin : state
+    })
+  }
+
   signout(){
-    alert("start sin out")
+    var self = this
+    alert("start sign out")
     firebaseService.authService.signOut().then(function(){
       alert("sign out success")
-      document.getElementById("login_div").innerHTML=`
-        <div className='login' >Login</div>
+      self.changeState("")
+      /*
+      document.getElementById("login_div").innerHTML = `
+        <div className="login" >Login</div>
         <input type="text" id="username" placeholder="email"/>
         <br/>
         <input type="password" id="password" placeholder="password"/>
@@ -70,12 +98,14 @@ export default class Login extends React.Component {
           <a href="/register"> Register </a>
         </div>
       `
+      */
     }).catch(function(err){
       alert(err)
     })
   }
 
   signin(){
+    var self = this
     var new_username = document.getElementById("username").value;
     var new_password = document.getElementById("password").value;
     if(new_username === undefined || new_password === undefined){
@@ -83,7 +113,8 @@ export default class Login extends React.Component {
     }
     else{
       firebaseService.authService.signInWithEmailAndPassword(new_username,new_password).then(function(){
-        document.getElementById("login_div").innerHTML = 
+        alert('signin success')
+        self.changeState(new_username)
       }).catch(function(err){
         alert(err);
       })
@@ -92,10 +123,32 @@ export default class Login extends React.Component {
 
 
   render(){
+
+    var mode = this.state.isSignin==="" ? (
+        <div>
+          <p> Welcome, ${this.state.isSignin} </p>
+          <button onClick={()=> this.signout()} > Signout </button>
+        </div>
+    ) : (
+        <div id="login_div">
+          <div className="login" >Login</div>
+          <input type="text" id="username" placeholder="email"/>
+          <br/>
+          <input type="password" id="password" placeholder="password"/>
+          <div className="login">
+            <button onClick={()=> this.signin()}> Submit </button>
+          </div>
+          <div className="login">
+            <a href="/register"> Register </a>
+          </div>
+        </div>
+    );
+
+
     return (
       <div id="page-wrap">
         <Header/>
-          
+          {mode}
         <Footer/>
       </div>
     )
