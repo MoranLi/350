@@ -124,7 +124,7 @@ export default class Login extends React.Component {
 
   render(){
 
-    var mode = this.state.isSignin==="" ? (
+    var mode = this.state.isSignin!=="" ? (
         <div>
           <p> Welcome, ${this.state.isSignin} </p>
           <button onClick={()=> this.signout()} > Signout </button>

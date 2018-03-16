@@ -10,7 +10,7 @@ export default class About extends React.Component {
         return (
         <div id="page-wrap">
 			<Header />
-				<div className="header-banner"  style={{backgroundImage: "url(" + aboutheader + ")"}}>
+				<div className="header-banner"  style={{backgroundImage: "url(" + "https://firebasestorage.googleapis.com/v0/b/project-407f3.appspot.com/o/image%2FBanners%2Fheader-banner-about.jpg?alt=media&token=782cf45d-acd9-4013-95bb-294a4f552252" + ")"}}>
 	      		  <div class="banner-text-heading">Learn a bit about us.</div>
 	   		</div> 
 	   		<div class="feature">
@@ -40,7 +40,7 @@ export default class About extends React.Component {
 	   				markets for standardized channels. Dynamically parallel task equity invested functionalities with ubiquitous networks. Enthusiastically
 	   				whiteboard granular manufactured products rather than.</p></div>
 	   		</div> 
-		   	<div class="footer-banner" style={{backgroundImage: "url(" + aboutfooter + ")"}}>
+		   	<div class="footer-banner" style={{backgroundImage: "url(" + "https://firebasestorage.googleapis.com/v0/b/project-407f3.appspot.com/o/image%2FBanners%2Ffooter-banner-about.jpg?alt=media&token=506d0c0f-a7e4-47f2-a1fb-fed7ecd854a7" + ")"}}>
 		   		<div class="footer-banner-text-heading">Let's get you started.</div>
 		      		<div class="footer-banner-text">Start shopping for your Strawberry Pi now.</div>
 		   	</div> 

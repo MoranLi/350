@@ -10,7 +10,7 @@ export default class Contact extends React.Component {
         return (
             	<div id="page-wrap">
 					<Header />
-					<div class="header-banner" style={{backgroundImage: "url(" + contactheader + ")"}}>
+					<div class="header-banner" style={{backgroundImage: "url(" + "https://firebasestorage.googleapis.com/v0/b/project-407f3.appspot.com/o/image%2FBanners%2Fheader-banner-contact.jpg?alt=media&token=1e700f52-4417-47c7-bcba-6df9673004c4" + ")"}}>
 			      		<div class="banner-text-heading">
 			      			Let's get the conversation started.
 			      		</div>
@@ -63,7 +63,7 @@ export default class Contact extends React.Component {
 			  			<input type="submit" value="Send Message"></input>
 					</form>
 			   		
-			   		<div class="footer-banner" style={{backgroundImage: "url(" + contactfooter + ")"}}>
+			   		<div class="footer-banner" style={{backgroundImage: "url(" + "https://firebasestorage.googleapis.com/v0/b/project-407f3.appspot.com/o/image%2FBanners%2Ffooter-banner-contact.jpg?alt=media&token=c9ca77d8-2f98-4f4c-9ccd-b8da8dc33598" + ")"}}>
 			   			<div class="footer-banner-text-heading">Don't forget to follow us on social media.</div>
 			      			<div class="footer-banner-text">It's ok, we encourage you to stalk us.</div>
 			   		</div> 

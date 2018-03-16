@@ -91,7 +91,7 @@ nav {
 
 .header-banner {
 	position: relative;
-	background-image: url("/images/Banners/header_banner_store.jpg");
+	background-image: url("https://firebasestorage.googleapis.com/v0/b/project-407f3.appspot.com/o/image%2FBanners%2Fheader_banner_store.jpg?alt=media&token=cd7953b2-143c-406c-8756-10611a4a382a");
 	background-size: 100% auto;
 	background-repeat: no-repeat;
 	background-position: center top bottom;
