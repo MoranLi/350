@@ -40,13 +40,13 @@ export default class Contact extends React.Component {
 			   					<div class="feature-box-text">
 			   						<p class="feature-box-text-adjust">
 			   							<a href="#facebook">
-			   								<img src="/images/Icons/icon_facebook.png" alt="facebook"/>
+			   								<img src="../images/Icons/icon_facebook.png" alt="facebook"/>
 			   							</a>
 			   							<a href="#facebook">
-			   								<img src="/images/Icons/icon_twitter.png" alt="facebook"/>
+			   								<img src="../images/Icons/icon_twitter.png" alt="facebook"/>
 			   							</a>
 			   							<a href="#facebook">
-			   								<img src="/images/Icons/icon_google.png" alt="facebook"/>
+			   								<img src="../images/Icons/icon_google.png" alt="facebook"/>
 			   							</a>
 			   						</p>
 			   					</div>

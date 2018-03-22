@@ -23,7 +23,7 @@ body {
 
 .header-banner {
 	position: relative;
-	background-image: url("/images/Banners/header-banner-home.jpg");
+	background-image: url("../images/Banners/header-banner-home.jpg");
 	background-size: 100% auto;
 	background-repeat: no-repeat;
 	background-position: center top;
@@ -127,7 +127,7 @@ body {
 
 .footer-banner {
 	position: relative;
-	background-image: url("/images/Banners/footer-banner-home.jpg");
+	background-image: url("../images/Banners/footer-banner-home.jpg");
 	background-size: 100% auto;
 	background-repeat: no-repeat;
 	background-position: center top;

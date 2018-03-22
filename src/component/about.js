@@ -18,17 +18,17 @@ export default class About extends React.Component {
 	   			orchestrate ethical convergance after out-of-the-box niches.</div>
 	   			<div class="feature-container">
 	   				<div class="feature-box" >
-	   					<img src="./images/Icons/icon_teach.png" alt="teach"/>
+	   					<img src="../images/Icons/icon_teach.png" alt="teach"/>
 	   					<div class="feature-box-model"><p>Teach</p></div>
 	   					<div class="feature-box-text" style={{height: '17%' }} ><p>Dynamically synergize long-term high-impact processes.</p></div>
 	   				</div>
 					<div class="feature-box" >
-	   					<img src="./images/Icons/icon_learn.png" alt="learn"/>
+	   					<img src="../images/Icons/icon_learn.png" alt="learn"/>
 	   					<div class="feature-box-model"><p>Learn</p></div>
 	   					<div class="feature-box-text" style={{height: '17%' }} ><p>Interactively myocardinate wireless web-readiness.</p></div>
 	   				</div>
 	   				<div class="feature-box">
-	   					<img src="./images/Icons/icon_create.png" alt="create"/>
+	   					<img src="../images/Icons/icon_create.png" alt="create"/>
 	   					<div class="feature-box-model"><p>Create</p></div>
 	   					<div class="feature-box-text" style={{height: '17%' }} > Conveniently implement seamless users.</div>
 	   				</div>
