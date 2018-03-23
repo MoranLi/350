@@ -14,7 +14,7 @@ underline {
 
 .header-banner {
 	position: relative;
-	background-image: url("/images/Banners/header-banner-contact.jpg");
+	background-image: url("../images/Banners/header-banner-contact.jpg");
 	background-size: 100% auto;
 	background-repeat: no-repeat;
 	background-position: center top;
@@ -164,7 +164,7 @@ textarea {
 
 .footer-banner {
 	position: relative;
-	background-image: url("/images/Banners/footer-banner-contact.jpg");
+	background-image: url("../images/Banners/footer-banner-contact.jpg");
 	background-size: 100% auto;
 	background-repeat: no-repeat;
 	background-position: center top;
