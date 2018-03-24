@@ -16,4 +16,4 @@ const itemsDB = db.ref('/items')
 const authService = app.auth()
 const storageDB = app.storage().ref()
 
-export default {itemsDB, authService, storageDB}
+export default {db, itemsDB, authService, storageDB}
