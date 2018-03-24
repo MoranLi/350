@@ -1,20 +1,30 @@
 import React from 'react';
-import './header.css';
+import {NavItem, Navbar, MenuItem, NavDropdown, Nav, Glyphicon} from 'react-bootstrap';
 
 export default class Header extends React.Component {
     render() {
         return (
-            <nav>
-        		<ul>
-          			<li id="icon"><a href="/home"><img src="images/atom-logo.png" alt="logo"/></a></li>
-          			<a href="/checkout"><li id="cart"><img src="images/Icons/icon_cart.png" alt="cart"/></li></a>
-          			<li class="menu-item"><a href="/contact">Contact</a></li>
-          			<li class="menu-item"><a href="/store">Store</a></li>
-          			<li class="menu-item"><a href="/about">About</a></li>
-					<li class="menu-item"><a href="/login">Login</a></li>
-          			<li id="underline"></li>
-        		</ul>
-        	</nav>
+            <Navbar fixedTop>
+                <Navbar.Header>
+                    <Navbar.Brand>
+                        <a href="/home"><Glyphicon glyph="home"/>&nbsp;&nbsp;Home</a>
+                    </Navbar.Brand>
+                </Navbar.Header>
+                <Nav pullRight>
+                    <NavItem eventKey={2} href="/store">Store</NavItem>
+                    <NavItem eventKey={4} href="/login"><Glyphicon glyph="user"/>&nbsp;Login</NavItem>
+                    <NavItem eventKey={4} href="/login"><Glyphicon glyph="shopping-cart"/>&nbsp;Cart</NavItem>
+                    <NavItem eventKey={3} href="/about"><Glyphicon glyph="info-sign"/>&nbsp;About</NavItem>
+                    <NavItem eventKey={1} href="/contact"><Glyphicon glyph="envelope"/>&nbsp;Contact</NavItem>
+                    <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+                        <MenuItem eventKey={3.1}>Action</MenuItem>
+                        <MenuItem eventKey={3.2}>Another action</MenuItem>
+                        <MenuItem eventKey={3.3}>Something else here</MenuItem>
+                        <MenuItem divider />
+                        <MenuItem eventKey={3.4}>Separated link</MenuItem>
+                    </NavDropdown>
+                </Nav>
+            </Navbar>
         )
         
     }
