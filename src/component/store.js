@@ -1,8 +1,9 @@
 import React from 'react';
 import Header from './partials/header.js';
 import Footer from './partials/footer.js';
-import {DB_CONFIG} from '../firebase.conf';
+import db from '../firebase.conf';
 import firebase from 'firebase';
+import Async from 'react-promise'
 
 import {Col, Grid, Row, Thumbnail, Button} from 'react-bootstrap';
 
@@ -40,64 +41,83 @@ function loadItems() {
         })
     })
 }
+
+let listing =  new Promise(function(responce, reject){
+	  var divlist = []
+	  loadItems().then(function(data){
+		divlist.push(<div class="feature-text"> Strawberry Pi </div>)
+		divlist.push(
+			<div class="feature-container">
+				{data[0].forEach(function(f){
+					divlist.push(
+						<div class="feature-box">
+							<img src={f.itemImageSrc} alt={f.itemImageAlt}/>
+							<div class="feature-box-model">
+								{f.itemDescription}
+							</div>
+							<div class="feature-box-price">
+								{f.itemPrice}
+							</div>
+						</div>
+					)
+				})}
+			</div>
+		)
+		divlist.push(<div class="feature-text"> Strawberry Pi </div>)
+		divlist.push(
+			<div class="feature-container">
+				{data[1].forEach(function(f){
+					divlist.push(
+						<div class="feature-box">
+							<img src={f.itemImageSrc} alt={f.itemImageAlt}/>
+							<div class="feature-box-model">
+								{f.itemDescription}
+							</div>
+							<div class="feature-box-price">
+								{f.itemPrice}
+							</div>
+						</div>
+					)
+				})}
+			</div>
+		)
+		divlist.push(<div class="feature-text"> Strawberry Pi </div>)
+		divlist.push(
+			<div class="feature-container">
+				{data[2].forEach(function(f){
+					divlist.push(
+						<div class="feature-box">
+							<img src={f.itemImageSrc} alt={f.itemImageAlt}/>
+							<div class="feature-box-model">
+								{f.itemDescription}
+							</div>
+							<div class="feature-box-price">
+								{f.itemPrice}
+							</div>
+						</div>
+					)
+				})}
+			</div>
+		)
+		console.log(divlist)
+		responce(divlist)
+	  }).catch(function(err){
+		reject(err)
+	  })
+	})
+
+const ExampleWithAsync = props => (
+	<Async promise={listing} then={val =><div> {val}</div>} />
+)
+
 export default class Store extends React.Component {
-
-	constructor(){
-		super();
-		this.app = firebase.initializeApp(DB_CONFIG);
-		this.database= this.app.database().ref().child('speed');
-		this.state={
-			speed:10
-		};
-		// loadItems().then(function(daat){itemList.forEach(function(element) {
-         //    console.log(element)})});
-        // loadItems().then(function(data){this.setState({val:itemList})});
-
-	}
-
-	componentDidMount() {
-		this.database.on('value', snap => {
-			this.setState({
-				speed:snap.val()
-			})
-		});
-	}
-
 
     render() {
 		var usersElements = [];
-		<div>
-        // console.log(itemList);
-        // console.log(this.state.val);
-		// for (let item of this.state.val[0]) {
-		// 	console.log(item);
-		// 	usersElements.push(
-		// 		/*<Col sm={3} md={2} xs={4}>
-		// 			<Thumbnail src='https://firebasestorage.googleapis.com/v0/b/project-407f3.appspot.com/o/image%2FBanners%2Fheader-banner-about.jpg?alt=media&token=782cf45d-acd9-4013-95bb-294a4f552252' >
-		// 				<h4>{item.username}</h4>
-		// 				<p>Age: {item.age}</p>
-		// 				<Button bsStyle="default">Add to Cart</Button>
-		// 			</Thumbnail>
-		// 		</Col>*/
-		// 		<Col sm={3} md={2} xs={4}>
-		// 			<Thumbnail src={item.itemImageSrc} >
-		// 				<h4>{item.itemDescription}</h4>
-		// 				<p>Age: {item.itemPrice}</p>
-		// 				<Button bsStyle="default">Add to Cart</Button>
-		// 			</Thumbnail>
-		// 		</Col>
-		// 	)
-		// }
 		return (
 			<div id="page-wrap">
 				<Header />
-				<br/><br/><br/><br/>
-				<Grid>
-					<Row className="show-grid">
-						{usersElements}
-					</Row>
-				</Grid>
-
+				<Async promise={listing} then={val =><div> {val}</div>} />
 				<Footer />
 			</div>
 		)
