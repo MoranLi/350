@@ -1,137 +1,31 @@
-body {
-	background: #CCCCCC;
-	margin: 0;
-	padding: 0;
-	font-family: Helvetica;
-}
 
-@media (max-width: 1440px) {
-	#page-wrap {
-		 background: #EEEEEE;
-		 width: 100%;
-		 margin: 0 auto;
-	}
-}
-
-@media (min-width: 1440px) {
-	#page-wrap {
-		 background: #EEEEEE;
-		 width: 1440px;
-		 margin: 0 auto;
-	}
-}
-
-.header-banner {
-	position: relative;
-	background-image: url("../images/Banners/header-banner-home.jpg");
-	background-size: 100% auto;
+/* Carousel Styling */
+.slide1{
+	background-image: url('https://firebasestorage.googleapis.com/v0/b/project-407f3.appspot.com/o/image%2FBanners%2Ffooter-banner-about.jpg?alt=media&token=506d0c0f-a7e4-47f2-a1fb-fed7ecd854a7');
+	height: 500px;
 	background-repeat: no-repeat;
-	background-position: center top;
-	background-color: rgba(255,0,0,0);
-	text-align: center;
+	background-position: center;
+	background-size: cover;
 }
-
-.banner-text-heading {
-   color: #FFFFFF;
-   font-size: 32pt;
-   padding: 13% 0 0 0;
-}
-
-.banner-text {
-    color: #FFFFFF; 
-    padding-top: 2.5%;
-    padding-bottom: 2%;
-    font-size: 16pt;
-}
-
- .header-banner button {
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 11.1%;
-  	font-size: 12px;
-	height: 35px;
-   	cursor: pointer;
-  	text-align: center;
-  	text-decoration: none;
-  	outline: none;
-  	background-color: #CCCCCC;
-  	border: none;
-  	border-radius: 5px;
-}
-
-
-
-.feature { 
-	background-color:#EEEEEE;
-}
-
-.feature-text {
-    text-align: center;
-    padding-top:6.5%;
-    padding-bottom: 1%;
-    font-size: 20pt;
-    color: black;
-}
-
-.feature-container { 
-    background-color: #EEEEEE;
-    padding-top: 3%;
-    padding-bottom: 10%;
-    padding-left: 55px;
-    width: 70%;
-    margin: auto;
-
-} 
-
-.feature-box {
-	float: left;
-	height: 410px;
-	width: 290px;
-	margin-right: auto;
-	margin-left: 1.75%;
-	margin-bottom: 2%;
-	background-color: #FFFFFF;
-	
-}
-
-.feature-box img {
-	display: block;
-	margin:0 auto;
-	width: 260px;
-	height: 223px;
-	margin-top: 10%;
-}
-
-
-.feature-box-model {
-	text-align: center;
-	margin-top: 10%
-}
-
-.feature-box-price {
-	text-align: center;
-}
-
-.feature-box button {
-	display: block;
-	margin: 0 auto;
-	font-size: 12px;
-  	padding: 10px 25px;
-  	text-align: center;
-  	text-decoration: none;
-  	outline: none;
-  	background-color: #FFFFFF;
-  	border: 2px solid #e7e7e7;
-  	border-radius: 5px;
-}
-
-.footer-banner {
-	position: relative;
-	background-image: url("../images/Banners/footer-banner-home.jpg");
-	background-size: 100% auto;
+.slide2{
+	background-image: url('https://firebasestorage.googleapis.com/v0/b/project-407f3.appspot.com/o/image%2FBanners%2Fheader-banner-about.jpg?alt=media&token=782cf45d-acd9-4013-95bb-294a4f552252');
+	height: 500px;
 	background-repeat: no-repeat;
-	background-position: center top;
-	background-color: rgba(255, 0, 0, 0);
-	text-align: center;
-	
+	background-position: center;
+	background-size: cover;
+}
+.slide3{
+	background-image: url('https://firebasestorage.googleapis.com/v0/b/project-407f3.appspot.com/o/image%2FBanners%2Ffooter-banner-about.jpg?alt=media&token=506d0c0f-a7e4-47f2-a1fb-fed7ecd854a7g');
+	height: 500px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+.carousel-caption h1{
+	font-size: 5.4em;
+	font-family: 'Pacifico', cursive;
+	padding-bottom: .4em;
+}
+.carousel-caption p{
+	font-size: 2em;
 }
