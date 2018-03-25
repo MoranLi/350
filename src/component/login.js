@@ -3,6 +3,7 @@ import './login.css'
 import Header from './partials/header.js';
 import Footer from './partials/footer.js';
 import firebaseService from '../firebase.conf.js'
+import user from '../user.js'
 /*
 class Loginmessage extends React.Component {
 
@@ -84,6 +85,8 @@ export default class Login extends React.Component {
     alert("start sign out")
     firebaseService.authService.signOut().then(function(){
       alert("sign out success")
+      user.setuser("")
+      console.log(user.getuser())
       self.changeState("")
       /*
       document.getElementById("login_div").innerHTML = `
@@ -114,6 +117,8 @@ export default class Login extends React.Component {
     else{
       firebaseService.authService.signInWithEmailAndPassword(new_username,new_password).then(function(){
         alert('signin success')
+        user.setuser(new_username)
+        console.log(user.getuser())
         self.changeState(new_username)
       }).catch(function(err){
         alert(err);

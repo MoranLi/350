@@ -3,7 +3,8 @@ import Header from './partials/header.js';
 import Footer from './partials/footer.js';
 import db from '../firebase.conf';
 import firebase from 'firebase';
-import Async from 'react-promise'
+import Async from 'react-promise';
+import user from '../user.js'
 
 import {Col, Grid, Row, Thumbnail, Button} from 'react-bootstrap';
 
@@ -20,6 +21,18 @@ const users = [
     { username: 'Lily', age: 19, gender: 'female' },
     { username: 'Lucy', age: 20, gender: 'female' }
 ];
+
+function addItem (name, imagesrc, price){
+	if(user.getuser() === ""){
+		alert("Not Signin")
+		return
+	}
+	db.ref('users/' + user.getuser()).set({
+		item: name,
+		src: imagesrc,
+		price: price
+	});
+}
 
 var itemList = [];
 function loadItems() {
@@ -117,7 +130,9 @@ export default class Store extends React.Component {
 		return (
 			<div id="page-wrap">
 				<Header />
-				<Async promise={listing} then={val =><div> {val}</div>} />
+					<div class="feature">
+						<Async promise={listing} then={val =><div> {val}</div>} />
+					</div>
 				<Footer />
 			</div>
 		)
