@@ -4,22 +4,7 @@ import Footer from './partials/footer.js';
 import db from '../firebase.conf';
 import Async from 'react-promise'
 import './home.css'
-import user from '../user.js'
 import {Col, Grid, Image, Row, Thumbnail, Button} from 'react-bootstrap';
-
-
-
-function addItem (name, imagesrc, price){
-	if(user.getuser() === ""){
-		alert("Not Signin")
-		return
-	}
-	db.ref('users/' + user.getuser()).set({
-		item: name,
-		src: imagesrc,
-		price: price
-	});
-}
 
 var itemList = [];
 function loadItems() {
@@ -42,6 +27,17 @@ function loadItems() {
     })
 }
 
+/*
+function addToCart(item){
+    if(user.getuser() === ""){
+        alert("Can not add to chart, not login yet")
+    }
+    else{
+        db.db.ref('/users/'+user.getuser()).set(item)
+    }
+}
+*/
+
 let listing =  new Promise(function(responce, reject){
 	  const usersElements = [];
 	  loadItems().then(function(data){
@@ -53,7 +49,7 @@ let listing =  new Promise(function(responce, reject){
                               <Image src={item.itemImageSrc} width="100" height="100"/>
                               <h4>{item.itemDescription}</h4>
                               <p>Price: {item.itemPrice}</p>
-                              <Button bsStyle="default">Add to Cart</Button>
+                              <Button bsStyle="default" onClick={(item) => addToCart(item)}>Add to Cart</Button>
                           </Thumbnail>
                       </Col>
                   )

@@ -3,7 +3,7 @@ import './login.css'
 import Header from './partials/header.js';
 import Footer from './partials/footer.js';
 import firebaseService from '../firebase.conf.js'
-import user from '../user.js'
+import db from '../firebase.conf';
 /*
 class Loginmessage extends React.Component {
 
@@ -82,28 +82,25 @@ export default class Login extends React.Component {
 
   signout(){
     var self = this
-    alert("start sign out")
-    firebaseService.authService.signOut().then(function(){
-      alert("sign out success")
-      user.setuser("")
-      console.log(user.getuser())
-      self.changeState("")
-      /*
-      document.getElementById("login_div").innerHTML = `
-        <div className="login" >Login</div>
-        <input type="text" id="username" placeholder="email"/>
-        <br/>
-        <input type="password" id="password" placeholder="password"/>
-        <div className="login">
-          <button onClick=${()=> this.signin()}> Submit </button>
-        </div>
-        <div className="login">
-          <a href="/register"> Register </a>
-        </div>
-      `
-      */
-    }).catch(function(err){
-      alert(err)
+    db.db.ref('/login').once('value').then(function(data){
+      if(data.val() != null){
+        db.db.ref('/login').remove().then(function(){
+          firebaseService.authService.signOut().then(function(){
+            alert("sign out success")
+            self.changeState("")
+          }).catch(function(err){
+            alert(err)
+          })
+        }).catch(function(err){
+          alert(err)
+        })
+        
+      }
+      else{
+        alert("not signed yet, cannot logout")
+      }
+    }).catch(function(error){
+      alert(error)
     })
   }
 
@@ -115,13 +112,23 @@ export default class Login extends React.Component {
       alert("please enter both email and password");
     }
     else{
-      firebaseService.authService.signInWithEmailAndPassword(new_username,new_password).then(function(){
-        alert('signin success')
-        user.setuser(new_username)
-        console.log(user.getuser())
-        self.changeState(new_username)
-      }).catch(function(err){
-        alert(err);
+      db.db.ref('/login').once('value').then(function(data){
+        if(data.val() == null){
+          firebaseService.authService.signInWithEmailAndPassword(new_username,new_password).then(function(){
+            alert('signin success')
+            db.db.ref('/login').set({
+              name: new_username
+            })
+            self.changeState(new_username)
+          }).catch(function(err){
+            alert(err);
+          })
+        }
+        else{
+          alert("already login as " + data.val())
+        }
+      }).catch(function(error){
+        alert(error)
       })
     }
   }
