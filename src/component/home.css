@@ -1,4 +1,6 @@
-
+.test{
+	height:270px;
+}
 /* Carousel Styling */
 .slide1{
 	background-image: url('https://firebasestorage.googleapis.com/v0/b/project-407f3.appspot.com/o/image%2FBanners%2Ffooter-banner-about.jpg?alt=media&token=506d0c0f-a7e4-47f2-a1fb-fed7ecd854a7');
