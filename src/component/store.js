@@ -49,7 +49,7 @@ let listing =  new Promise(function(responce, reject){
                               <Image src={item.itemImageSrc} width="100" height="100"/>
                               <h4>{item.itemDescription}</h4>
                               <p>Price: {item.itemPrice}</p>
-                              <Button bsStyle="default" onClick={(item) => addToCart(item)}>Add to Cart</Button>
+                              <Button bsStyle="default" >Add to Cart</Button>
                           </Thumbnail>
                       </Col>
                   )
