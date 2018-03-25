@@ -123,7 +123,6 @@ input[type=text] {
 
 input[type=email] {
 	box-sizing: border-box;
-	float: right;
 	margin-top: 1%;
 	margin-bottom: 1%;
 	width: 53%;
