@@ -1,7 +1,16 @@
 import React from 'react';
+import firebase from 'firebase';
 import {NavItem, Navbar, MenuItem, NavDropdown, Nav, Glyphicon} from 'react-bootstrap';
 
 export default class Header extends React.Component {
+    getUser() {
+        var user = firebase.auth().currentUser;
+        var name;
+        if (user != null)
+            name = user.displayName;
+        return name;
+    }
+
     render() {
         return (
             <Navbar fixedTop>
@@ -10,6 +19,9 @@ export default class Header extends React.Component {
                         <a href="/home"><Glyphicon glyph="home"/>&nbsp;&nbsp;Home</a>
                     </Navbar.Brand>
                 </Navbar.Header>
+                <Navbar.Text>
+                    Signed in as: <Navbar.Link href="#">{this.getUser()}</Navbar.Link>
+                </Navbar.Text>
                 <Nav pullRight>
                     <NavItem eventKey={2} href="/store">Store</NavItem>
                     <NavItem eventKey={4} href="/login"><Glyphicon glyph="user"/>&nbsp;Login</NavItem>

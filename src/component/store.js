@@ -2,25 +2,12 @@ import React from 'react';
 import Header from './partials/header.js';
 import Footer from './partials/footer.js';
 import db from '../firebase.conf';
-import firebase from 'firebase';
-import Async from 'react-promise';
+import Async from 'react-promise'
+import './home.css'
 import user from '../user.js'
+import {Col, Grid, Image, Row, Thumbnail, Button} from 'react-bootstrap';
 
-import {Col, Grid, Row, Thumbnail, Button} from 'react-bootstrap';
 
-const users = [
-    { username: 'Jerry', age: 21, gender: 'male' },
-    { username: 'Jerry', age: 21, gender: 'male' },
-    { username: 'Jerry', age: 21, gender: 'male' },
-    { username: 'Tomy', age: 22, gender: 'male' },
-    { username: 'Lily', age: 19, gender: 'female' },
-    { username: 'Jerry', age: 21, gender: 'male' },
-    { username: 'Jerry', age: 21, gender: 'male' },
-    { username: 'Jerry', age: 21, gender: 'male' },
-    { username: 'Tomy', age: 22, gender: 'male' },
-    { username: 'Lily', age: 19, gender: 'female' },
-    { username: 'Lucy', age: 20, gender: 'female' }
-];
 
 function addItem (name, imagesrc, price){
 	if(user.getuser() === ""){
@@ -56,85 +43,37 @@ function loadItems() {
 }
 
 let listing =  new Promise(function(responce, reject){
-	  var divlist = []
+	  const usersElements = [];
 	  loadItems().then(function(data){
-		divlist.push(<div class="feature-text"> Strawberry Pi </div>)
-		divlist.push(
-			<div class="feature-container">
-				{data[0].forEach(function(f){
-					divlist.push(
-						<div class="feature-box">
-							<img src={f.itemImageSrc} alt={f.itemImageAlt}/>
-							<div class="feature-box-model">
-								{f.itemDescription}
-							</div>
-							<div class="feature-box-price">
-								{f.itemPrice}
-							</div>
-						</div>
-					)
-				})}
-			</div>
-		)
-		divlist.push(<div class="feature-text"> Strawberry Pi </div>)
-		divlist.push(
-			<div class="feature-container">
-				{data[1].forEach(function(f){
-					divlist.push(
-						<div class="feature-box">
-							<img src={f.itemImageSrc} alt={f.itemImageAlt}/>
-							<div class="feature-box-model">
-								{f.itemDescription}
-							</div>
-							<div class="feature-box-price">
-								{f.itemPrice}
-							</div>
-						</div>
-					)
-				})}
-			</div>
-		)
-		divlist.push(<div class="feature-text"> Strawberry Pi </div>)
-		divlist.push(
-			<div class="feature-container">
-				{data[2].forEach(function(f){
-					divlist.push(
-						<div class="feature-box">
-							<img src={f.itemImageSrc} alt={f.itemImageAlt}/>
-							<div class="feature-box-model">
-								{f.itemDescription}
-							</div>
-							<div class="feature-box-price">
-								{f.itemPrice}
-							</div>
-						</div>
-					)
-				})}
-			</div>
-		)
-		console.log(divlist)
-		responce(divlist)
+	      data.forEach(function(dd) {
+              dd.forEach(function (item) {
+                  usersElements.push(
+                      <Col sm={3} md={2} xs={4}>
+                          <Thumbnail className='test'>
+                              <Image src={item.itemImageSrc} width="100" height="100"/>
+                              <h4>{item.itemDescription}</h4>
+                              <p>Price: {item.itemPrice}</p>
+                              <Button bsStyle="default">Add to Cart</Button>
+                          </Thumbnail>
+                      </Col>
+                  )
+              });
+          });
+          responce(usersElements);
 	  }).catch(function(err){
 		reject(err)
 	  })
-	})
+	});
 
-const ExampleWithAsync = props => (
-	<Async promise={listing} then={val =><div> {val}</div>} />
-)
 
 export default class Store extends React.Component {
-
-    render() {
-		var usersElements = [];
+	render() {
 		return (
 			<div id="page-wrap">
 				<Header />
-					<div class="feature">
-						<Async promise={listing} then={val =><div> {val}</div>} />
-					</div>
-				<Footer />
+				<br/><br/><br/><br/>
+					<Async promise={listing} then={val =><Grid> <Row>{val}</Row></Grid>} />
 			</div>
 		)
-  }
+	}
 }
