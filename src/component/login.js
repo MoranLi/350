@@ -82,9 +82,9 @@ export default class Login extends React.Component {
 
   signout(){
     var self = this
-    db.db.ref('/login').once('value').then(function(data){
+    db.db.ref('/logintest').once('value').then(function(data){
       if(data.val() != null){
-        db.db.ref('/login').remove().then(function(){
+        db.db.ref('/logintest').remove().then(function(){
           firebaseService.authService.signOut().then(function(){
             alert("sign out success")
             self.changeState("")
@@ -112,11 +112,11 @@ export default class Login extends React.Component {
       alert("please enter both email and password");
     }
     else{
-      db.db.ref('/login').once('value').then(function(data){
+      db.db.ref('/logintest').once('value').then(function(data){
         if(data.val() == null){
           firebaseService.authService.signInWithEmailAndPassword(new_username,new_password).then(function(){
             alert('signin success')
-            db.db.ref('/login').set({
+            db.db.ref('/logintest').set({
               name: new_username
             })
             self.changeState(new_username)

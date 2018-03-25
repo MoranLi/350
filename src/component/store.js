@@ -2,9 +2,9 @@ import React from 'react';
 import Header from './partials/header.js';
 import Footer from './partials/footer.js';
 import db from '../firebase.conf';
-import Async from 'react-promise'
-import './home.css'
+import Async from 'react-promise';
 import {Col, Grid, Image, Row, Thumbnail, Button} from 'react-bootstrap';
+import './home.css'
 
 var itemList = [];
 function loadItems() {
@@ -27,16 +27,35 @@ function loadItems() {
     })
 }
 
-/*
-function addToCart(item){
-    if(user.getuser() === ""){
-        alert("Can not add to chart, not login yet")
+function hash(str) {
+    var hash = 5381,
+        i    = str.length
+    while(i) {
+      hash = (hash * 33) ^ str.charCodeAt(--i);
     }
-    else{
-        db.db.ref('/users/'+user.getuser()).set(item)
-    }
+    return hash >>> 0
 }
-*/
+
+function addToCart(item){
+    db.db.ref('/logintest').once('value').then(function(user){
+        if(user.val() == null){
+            alert("Not login !")
+        }
+        else{
+            var hashusername = hash(user.val().name)
+            console.log(item)
+            db.db.ref('/users/'+hashusername.toString()).push().set(item).then(function(){
+                alert("add item successfully")
+            }).catch(function(err){
+                alert(err)
+                console.log(err)
+            })
+        }
+    }).catch(function(err){
+        alert(err)
+        console.log(err)
+    })
+}
 
 let listing =  new Promise(function(responce, reject){
 	  const usersElements = [];
@@ -49,7 +68,8 @@ let listing =  new Promise(function(responce, reject){
                               <Image src={item.itemImageSrc} width="100" height="100"/>
                               <h4>{item.itemDescription}</h4>
                               <p>Price: {item.itemPrice}</p>
-                              <Button bsStyle="default" >Add to Cart</Button>
+                              {console.log(item)}
+                              <Button bsStyle="default" onClick={() => addToCart(item)}>Add to Cart</Button>
                           </Thumbnail>
                       </Col>
                   )
