@@ -19,29 +19,26 @@ function hash(str) {
 
 function loadItems() {
     return new Promise(function(resolve, reject){
-      db.db.ref('/logintest').once('value').then(function(user){
-        if(user.val() == null){
-            alert("Not login !")
+      db.authService.onAuthStateChanged(function(user) {
+        if (user) {
+          var hashusername = hash(db.authService.currentUser.email)
+          db.db.ref('/users/'+hashusername.toString()).once('value').then(function(dataSnapshot){
+            var data = dataSnapshot.val();
+            console.log(data)
+            Object.keys(data).forEach(function(f){
+                var sub = data[f];
+                sub["key"] = f;
+                itemList.push(sub)
+            });
+            console.log("success load item");
+            resolve(itemList)
+          }).catch(function(err){
+            reject(err)
+          })
+        } else {
+          reject("Not login !")
         }
-        else{
-            var hashusername = hash(user.val().name)
-            db.db.ref('/users/'+hashusername.toString()).once('value').then(function(dataSnapshot){
-              var data = dataSnapshot.val();
-              console.log(data)
-              Object.keys(data).forEach(function(f){
-                  var sub = data[f];
-                  sub["key"] = f;
-                  itemList.push(sub)
-              });
-              console.log("success load item");
-              resolve(itemList)
-            }).catch(function(err){
-              reject(err)
-            })
-        }
-      }).catch(function(err){
-        reject(err)
-      })
+      });
     })
 }
 
@@ -55,45 +52,33 @@ function hash(str) {
 }
 
 function removeFromCart(item){
-  db.db.ref('/logintest').once('value').then(function(user){
-      if(user.val() == null){
-          alert("Not login !")
-      }
-      else{
-          var hashusername = hash(user.val().name)
-          db.db.ref('/users/'+hashusername.toString()+"/"+item["key"]).remove().then(function(){
-              alert("remove item successfully")
-              document.getElementById(item["key"]).remove()
-          }).catch(function(err){
-              alert(err)
-              console.log(err)
-          })
-      }
-  }).catch(function(err){
-      alert(err)
-      console.log(err)
-  })
+  if(db.authService.currentUser) {
+    var hashusername = hash(db.authService.currentUser.email)
+    db.db.ref('/users/'+hashusername.toString()+"/"+item["key"]).remove().then(function(){
+      alert("remove item successfully")
+      document.getElementById(item["key"]).remove()
+    }).catch(function(err){
+        alert(err)
+        console.log(err)
+    })
+  } else {
+      alert("Not login !")
+  } 
 }
 
 function clearCart(){
-  db.db.ref('/logintest').once('value').then(function(user){
-    if(user.val() == null){
-        alert("Not login !")
-    }
-    else{
-        var hashusername = hash(user.val().name)
-        db.db.ref('/users/'+hashusername.toString()).remove().then(function(){
-            alert("cart cleared")
-            document.getElementById("cart").innerHTML=""
-        }).catch(function(err){
-            alert(err)
-            console.log(err)
-        })
-    }
-  }).catch(function(err){
-      alert(err)
-      console.log(err)
-  })
+  if(db.authService.currentUser) {
+    var hashusername = hash(db.authService.currentUser.email)
+    db.db.ref('/users/'+hashusername.toString()).remove().then(function(){
+      alert("cart cleared")
+      document.getElementById("cart").innerHTML=""
+    }).catch(function(err){
+        alert(err)
+        console.log(err)
+    })
+  } else {
+      alert("Not login !")
+  }  
 }
 
 let listing =  new Promise(function(responce, reject){

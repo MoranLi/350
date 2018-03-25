@@ -9,7 +9,6 @@ import './home.css'
 var itemList = [];
 function loadItems() {
     return new Promise(function(resolve, reject){
-
         var itemsDB = db.db.ref('/items/-L8JYXtY-oqUdTc8U9p_');
         console.log("start load item");
         itemsDB.once('value').then(function(dataSnapshot){
@@ -37,24 +36,17 @@ function hash(str) {
 }
 
 function addToCart(item){
-    db.db.ref('/logintest').once('value').then(function(user){
-        if(user.val() == null){
-            alert("Not login !")
-        }
-        else{
-            var hashusername = hash(user.val().name)
-            console.log(item)
-            db.db.ref('/users/'+hashusername.toString()).push().set(item).then(function(){
-                alert("add item successfully")
-            }).catch(function(err){
-                alert(err)
-                console.log(err)
-            })
-        }
-    }).catch(function(err){
-        alert(err)
-        console.log(err)
-    })
+    if(db.authService.currentUser) {
+        var hashusername = hash(db.authService.currentUser.email)
+        db.db.ref('/users/'+hashusername.toString()).push().set(item).then(function(){
+            alert("add item successfully")
+        }).catch(function(err){
+            alert(err)
+            console.log(err)
+        })
+    } else {
+        alert("Not login !")
+    }  
 }
 
 let listing =  new Promise(function(responce, reject){
