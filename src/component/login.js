@@ -32,7 +32,7 @@ export default class Login extends React.Component {
                 <input id="txtEmail" type="email" placeholder="Email"/>
                 <input id="txtPassword" type="password" placeholder="Password"/>
                 <button onClick={()=> this.signin()}>Submit</button>
-                <button id="btnSignUp">Signup</button>
+                <button onClick={()=> this.signup()}>Signup</button>
             </div>;
         return (
 

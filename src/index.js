@@ -8,7 +8,6 @@ import Home from './component/home.js';
 import Contact from './component/contact.js';
 import Store from './component/store.js';
 import Login from './component/login.js'
-import Register from './component/register.js'
 import Checkout from './component/checkout.js'
 
 ReactDOM.render((
@@ -19,7 +18,6 @@ ReactDOM.render((
             <Route path= "/contact" component= {Contact}/>
             <Route path= "/store" component= {Store}/>
             <Route path= "/login" component= {Login}/>
-            <Route path= "/register" component= {Register}/>
             <Route path= "/checkout" component={Checkout}/>
         </div>
     </BrowserRouter>
