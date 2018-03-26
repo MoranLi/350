@@ -9,12 +9,12 @@ import './home.css'
 var itemList = [];
 function loadItems() {
     return new Promise(function(resolve, reject){
-        var itemsDB = db.db.ref('/items/-L8JYXtY-oqUdTc8U9p_');
+        var itemsDB = db.db.ref('/items/-L8ZA_HeEu6k4iG49E7q');
         console.log("start load item");
         itemsDB.once('value').then(function(dataSnapshot){
             var data = dataSnapshot.val();
-            Object.keys(data).forEach(function(f){
-                var sub = data[f];
+            data.forEach(function(f){
+                var sub = f;
                 itemList.push(sub)
             });
             console.log("success load item");
@@ -52,20 +52,18 @@ function addToCart(item){
 let listing =  new Promise(function(responce, reject){
 	  const usersElements = [];
 	  loadItems().then(function(data){
-	      data.forEach(function(dd) {
-              dd.forEach(function (item) {
-                  usersElements.push(
-                      <Col sm={3} md={2} xs={4}>
-                          <Thumbnail className='test'>
-                              <Image src={item.itemImageSrc} width="100" height="100"/>
-                              <h4>{item.itemDescription}</h4>
-                              <p>Price: {item.itemPrice}</p>
-                              {console.log(item)}
-                              <Button bsStyle="default" onClick={() => addToCart(item)}>Add to Cart</Button>
-                          </Thumbnail>
-                      </Col>
-                  )
-              });
+	      data.forEach(function(item) {   
+            usersElements.push(
+                <Col sm={3} md={2} xs={4}>
+                    <Thumbnail className='test'>
+                        <Image src={item.itemImageSrc} width="100" height="100"/>
+                        <h4>{item.itemDescription}</h4>
+                        <p>Price: {item.itemPrice}</p>
+                        {console.log(item)}
+                        <Button bsStyle="default" onClick={() => addToCart(item)}>Add to Cart</Button>
+                    </Thumbnail>
+                </Col>
+            ) 
           });
           responce(usersElements);
 	  }).catch(function(err){
