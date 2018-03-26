@@ -1,10 +1,9 @@
 import React from 'react';
-import './checkout.css';
 import Header from './partials/header.js';
 import Footer from './partials/footer.js';
 import db from '../firebase.conf';
 import Async from 'react-promise';
-import {ButtonGroup,Image, Row, Col, Grid, Button} from 'react-bootstrap';
+import {Row, Col, Image, Button} from 'react-bootstrap';
 
 let itemList = [];
 
@@ -81,18 +80,18 @@ let listing =  new Promise(function(responce, reject){
   loadItems().then(function(data){
       data.forEach(function(item) {
         usersElements.push(
-            <div className="media" id={item["key"]}>
-                <div className="media-left media-top">
+            <Row className="media" id={item["key"]}>
+                <Col className="media-left media-top">
                     <Image width="100" height="100" src={item.itemImageSrc}/>
-                </div>
-                <div className="media-body">
+                </Col>
+                <Col className="media-body">
                   <h4 className="media-heading">{item.itemDescription}</h4>
                   <p>Price: ${item.itemPrice}</p>
-                </div>
-                <div className="media-left media-top">
-                    <Button bsSize="small" onClick={() => removeFromCart(item)}>remove</Button>
-                </div>
-            </div>
+                </Col>
+                <Col className="media-left media-top">
+                    <Button bsSize="medium" onClick={() => removeFromCart(item)}>remove</Button>
+                </Col>
+            </Row>
         )});
        responce(usersElements);
   }).catch(function(err){
@@ -107,10 +106,10 @@ export default class Checkout extends React.Component {
           <Header/>
             <br/><br/><br/>
             <Async promise={listing} then={val =><div id="cart">{val}</div>} />
-            <div >
-                <Button className="pull-right" bsStyle="success" onClick={alert("check out page")> Check Out </Button>&nbsp;&nbsp;
-                <Button bsStyle="danger" onClick={() => clearCart()}> Clear Chart </Button>
-            </div>
+
+            <Button className="pull-right" bsStyle="success" onClick={()=>alert("check out page")}>Check Out</Button>&nbsp;&nbsp;
+            <Button bsStyle="danger" onClick={() => clearCart()}> Clear Chart </Button>
+
           {/*<Footer/>*/}
         </div>
       )
