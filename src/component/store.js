@@ -9,7 +9,7 @@ import './home.css'
 var itemList = [];
 function loadItems() {
     return new Promise(function(resolve, reject){
-        var itemsDB = db.db.ref('/items/-L8ZA_HeEu6k4iG49E7q');
+        var itemsDB = db.db.ref('/items');
         console.log("start load item");
         itemsDB.once('value').then(function(dataSnapshot){
             var data = dataSnapshot.val();
