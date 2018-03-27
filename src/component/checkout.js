@@ -86,6 +86,7 @@ function checkCard() {
     }
     else {
         alert ("Payment Success")
+        clearCart()
     }
 }
 
