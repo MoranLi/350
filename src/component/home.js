@@ -3,6 +3,52 @@ import './home.css'
 import Header from './partials/header.js';
 import Footer from './partials/footer.js';
 import {Carousel} from 'react-bootstrap';
+import about from './about.js';
+
+import {
+  FacebookShareCount,
+  GooglePlusShareCount,
+  LinkedinShareCount,
+  PinterestShareCount,
+  VKShareCount,
+  OKShareCount,
+  RedditShareCount,
+  TumblrShareCount,
+  TwitterShareCount
+} from 'react-share';
+
+import {
+  FacebookShareButton,
+  GooglePlusShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+  TelegramShareButton,
+  WhatsappShareButton,
+  PinterestShareButton,
+  VKShareButton,
+  OKShareButton,
+  RedditShareButton,
+  TumblrShareButton,
+  LivejournalShareButton,
+  EmailShareButton,
+} from 'react-share';
+
+import {
+  FacebookIcon,
+  TwitterIcon,
+  TelegramIcon,
+  WhatsappIcon,
+  GooglePlusIcon,
+  LinkedinIcon,
+  PinterestIcon,
+  VKIcon,
+  OKIcon,
+  RedditIcon,
+  TumblrIcon,
+  LivejournalIcon,
+  MailruIcon,
+  EmailIcon,
+} from 'react-share';
 
 export default class Home extends React.Component {
     render() {
@@ -29,22 +75,28 @@ export default class Home extends React.Component {
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
-           		<Footer />
-           		
-           		
-           		<a href="http://www.facebook.com/sharer.php?u=https://simplesharebuttons.com" target="_blank">
-                <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
-                </a>
-                
-                <a href="https://plus.google.com/share?url=https://simplesharebuttons.com" target="_blank">
-                <img src="https://simplesharebuttons.com/images/somacro/google.png" alt="Google" />
-                </a>
-
-                <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://simplesharebuttons.com" target="_blank">
-                <img src="https://simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" />
-                </a>
+                <FacebookShareButton quote='test' hashtag='about' />
+                <FacebookShareCount url={about}>
+                    {shareCount => (
+                    <span className="myShareCountWrapper">{shareCount}</span>
+                    )}
+                </FacebookShareCount>
+                <FacebookIcon size={32} round={true} />
+           		<div class="fb-share-button" data-href="https://localhost:8080" data-layout="box_count" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flocalhost%3A8080%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+           		<br/>
+           		<TwitterShareButton quote='test' hashtag='about' />
+                <TwitterIcon size={32} round={true} />
+                <a class="twitter-share-button"
+                  href="https://twitter.com/intent/tweet?text=Hello%20world"
+                  data-size="large">
+                Tweet</a>
+           		<br/><br/>
+                <a href="https://plus.google.com/share?url={localhost:8080}" onclick="javascript:window.open(this.href,
+                  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=100,width=100');return false;"><img
+                  src="https://www.gstatic.com/images/icons/gplus-32.png" alt="Share on Google+"/></a>
+                           		
+           		<Footer/>
         	</div>
-
         );
   }
 }
