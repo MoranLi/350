@@ -75,6 +75,32 @@ function clearCart(){
   }  
 }
 
+function checkCard() {
+    var txt;
+    var person = prompt("Please enter your credit card number:", "must be 16 digit");
+    if (person == null || person == "" || person.length != 16) {
+        alert ("Your Credit Card number is invalid")
+    }
+    else if (validate_creditcardnumber(person)==false){
+        alert ("Your Credit Card number is invalid")
+    }
+    else {
+        alert ("Payment Success")
+    }
+}
+
+function validate_creditcardnumber(number)
+    {
+      var re16digit=/^\d{16}$/
+      if (number.search(re16digit)==-1){
+      return false;  
+      }
+      else{
+        return true
+      }
+    }
+
+
 let listing =  new Promise(function(responce, reject){
   const usersElements = [];
   loadItems().then(function(data){
@@ -106,12 +132,16 @@ export default class Checkout extends React.Component {
           <Header/>
             <br/><br/><br/>
             <Async promise={listing} then={val =><div id="cart">{val}</div>} />
-
-            <Button className="pull-right" bsStyle="success" onClick={()=>alert("check out page")}>Check Out</Button>&nbsp;&nbsp;
+``
+            <Button className="pull-right" bsStyle="success" onClick={()=>checkCard()
+}>Check Out</Button>&nbsp;&nbsp;
+            
             <Button bsStyle="danger" onClick={() => clearCart()}> Clear Chart </Button>
 
           {/*<Footer/>*/}
         </div>
       )
     }
+    
 }
+
