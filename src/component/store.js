@@ -5,23 +5,33 @@ import db from '../firebase.conf';
 import Async from 'react-promise';
 import {Col, Grid, Image, Row, Thumbnail, Button} from 'react-bootstrap';
 import './home.css'
+import axios from 'axios';
 
 var itemList = [];
 function loadItems() {
     return new Promise(function(resolve, reject){
-        var itemsDB = db.db.ref('/items');
-        console.log("start load item");
-        itemsDB.once('value').then(function(dataSnapshot){
-            var data = dataSnapshot.val();
-            data.forEach(function(f){
-                var sub = f;
-                itemList.push(sub)
-            });
-            console.log("success load item");
-            resolve(itemList)
+        // var itemsDB = db.db.ref('/items');
+        // console.log("start load item");
+        // itemsDB.once('value').then(function(dataSnapshot){
+        //     var data = dataSnapshot.val();
+        //     data.forEach(function(f){
+        //         var sub = f;
+        //         itemList.push(sub)
+        //     });
+        //     console.log("success load item");
+        //     resolve(itemList)
+        // }).catch(function(err){
+        //     console.log("fail load item");
+        //     reject(err)
+        // })
+        axios.get("https://server350.herokuapp.com"),
+        headers:{
+            'Access-Control-Allow-Origin':'*'
+        }})
+        .then(function (reponse){
+        	resolve(reponse)
         }).catch(function(err){
-            console.log("fail load item");
-            reject(err)
+        	reject(err)
         })
     })
 }
@@ -52,7 +62,7 @@ function addToCart(item){
 let listing =  new Promise(function(responce, reject){
 	  const usersElements = [];
 	  loadItems().then(function(data){
-	      data.forEach(function(item) {   
+	      data.data.forEach(function(item) {   
             usersElements.push(
                 <Col sm={3} md={2} xs={4}>
                     <Thumbnail className='test'>
