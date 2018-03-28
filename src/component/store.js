@@ -5,27 +5,11 @@ import db from '../firebase.conf';
 import Async from 'react-promise';
 import {Col, Grid, Image, Row, Thumbnail, Button} from 'react-bootstrap';
 import './home.css'
-import axios from 'axios'
+import axios from 'axios';
 
 var itemList = [];
 function loadItems() {
     return new Promise(function(resolve, reject){
-        /*
-        var itemsDB = db.db.ref('/items');
-        console.log("start load item");
-        itemsDB.once('value').then(function(dataSnapshot){
-            var data = dataSnapshot.val();
-            data.forEach(function(f){
-                var sub = f;
-                itemList.push(sub)
-            });
-            console.log("success load item");
-            resolve(itemList)
-        }).catch(function(err){
-            console.log("fail load item");
-            reject(err)
-        })
-        */
        axios.get("http://server350.herokuapp.com",{
         headers: {
           'Access-Control-Allow-Origin': '*'
