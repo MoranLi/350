@@ -24,8 +24,8 @@ function loadItems() {
         //     console.log("fail load item");
         //     reject(err)
         // })
-        axios.get("https://server350.herokuapp.com"),
-        headers:{
+        axios.get("https://server350.herokuapp.com",{
+            headers:{
             'Access-Control-Allow-Origin':'*'
         }})
         .then(function (reponse){
