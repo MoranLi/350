@@ -9,6 +9,8 @@ import Contact from './component/contact.js';
 import Store from './component/store.js';
 import Login from './component/login.js'
 import Checkout from './component/checkout.js'
+import Post from './component/post.js'
+
 
 ReactDOM.render((
     <BrowserRouter>
@@ -19,6 +21,7 @@ ReactDOM.render((
             <Route path= "/store" component= {Store}/>
             <Route path= "/login" component= {Login}/>
             <Route path= "/checkout" component={Checkout}/>
+            <Route path= "/post" component={Post}/>
         </div>
     </BrowserRouter>
 ), document.getElementById('root'));
