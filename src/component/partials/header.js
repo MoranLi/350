@@ -31,6 +31,17 @@ export default class Header extends React.Component {
         }
     }
 
+
+    postItem() {
+        if(firebaseService.authService.currentUser) {
+            window.location = '/post'
+
+            alert("Already log in as: "+firebaseService.authService.currentUser.email);
+        } else {
+            alert("Please log in first");
+        }
+    }
+
     render() {
         return (
             <Navbar fixedTop>
@@ -46,6 +57,7 @@ export default class Header extends React.Component {
                     <NavItem eventKey={3} onClick={()=> this.goTo('/checkout')}><Glyphicon glyph="shopping-cart"/>&nbsp;Cart</NavItem>
                     <NavItem eventKey={2} href="/about"><Glyphicon glyph="info-sign"/>&nbsp;About</NavItem>
                     <NavItem eventKey={1} href="/contact"><Glyphicon glyph="envelope"/>&nbsp;Contact</NavItem>
+                    <NavItem eventKey={5} onClick={()=> this.postItem()}><Glyphicon glyph="user"/>&nbsp;Post Item</NavItem>
                 </Nav>
             </Navbar>
         )

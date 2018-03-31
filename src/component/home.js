@@ -84,15 +84,15 @@ export default class Home extends React.Component {
                 </FacebookShareCount>
                 <FacebookIcon size={32} round={true} />
 
-                <div class="fb-share-button" data-href="https://usask.ca" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fusask.ca%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>           		<br/>
+                <div class="fb-share-button" data-href="http://interface350.herokuapp.com/home" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Finterface350.herokuapp.com/home%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>           		<br/>
            		<TwitterShareButton quote='test' hashtag='about' />
                 <TwitterIcon size={32} round={true} />
                 <a class="twitter-share-button"
-                  href="https://twitter.com/intent/tweet?text=%20www.usask.ca"
+                  href="https://twitter.com/intent/tweet?text=%20http://interface350.herokuapp.com/home"
                   data-size="large">
                 Tweet</a>
            		<br/><br/>
-                <a href="https://plus.google.com/share?url=https://usask.ca" onclick="javascript:window.open(this.href,
+                <a href="https://plus.google.com/share?url=http://interface350.herokuapp.com/home" onclick="javascript:window.open(this.href,
                   '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img
                   src="https://www.gstatic.com/images/icons/gplus-32.png" alt="Share on Google+"/></a>
            		<Footer/>

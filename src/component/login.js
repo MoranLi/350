@@ -31,14 +31,16 @@ export default class Login extends React.Component {
             <div>
               <div style={{display: 'flex', justifyContent: 'center'}}>
                   <input id="txtEmail" type="text" placeholder="Email"/>
-
               </div>
-                <br/>
+
+              <br/>
+              
               <div style={{display: 'flex', justifyContent: 'center'}}>
                   <input id="txtPassword" type="password" placeholder="Password"/>
-
               </div>
-                <br/>
+              
+              <br/>
+
               <div style={{display: 'flex', justifyContent: 'center'}}>
                 <Button onClick={()=> this.signin()}>Log In</Button>
                 <Button onClick={()=> this.signup()}>Sign Up</Button>
@@ -53,7 +55,6 @@ export default class Login extends React.Component {
                 <button onClick={()=> this.signup()}>Signup</button>
             </div>;*/
         return (
-
             <div id="page-wrap">
                 <Header/>
                 <br/><br/><br/>
