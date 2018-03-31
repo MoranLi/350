@@ -52,10 +52,7 @@ export default class Footer extends React.Component {
             <div className="footer">
            		<ul className="footer-list">
                 
-        			<li id="follow">Follow Us:</li>
-        			<li className="social"><a href="#facebook"><img src="images/Icons/icon_facebook.png" alt="facebook"/></a></li>
-        			<li className="social"><a href="#twitter"><img src="images/Icons/icon_twitter.png" alt="twitter"/></a></li>
-        			<li className="social"><a href="#google"><img src="images/Icons/icon_google.png" alt="google"/></a></li>
+        			<li id="follow">Share Us:</li>
                     <li className="social">
                     <FacebookIcon size={32} round={true} />
                     <div class="fb-share-button" data-href="http://interface350.herokuapp.com/home" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Finterface350.herokuapp.com/home%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>                <br/>
