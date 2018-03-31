@@ -51,11 +51,11 @@ export default class Header extends React.Component {
                 <Nav pullRight>
                     <NavItem eventKey={5} onClick={()=> this.goLogin()}><Glyphicon glyph="user"/>&nbsp;Login</NavItem>
                     <NavItem eventKey={5} onClick={()=> this.goLogout()}><Glyphicon glyph="user"/>&nbsp;Logout</NavItem>
-                    <NavItem eventKey={4} onClick={()=> this.goTo('/store')}>Store</NavItem>
+                    <NavItem eventKey={4} onClick={()=> this.goTo('/store')}><Glyphicon glyph="usd"/>&nbsp;Store</NavItem>
                     <NavItem eventKey={3} onClick={()=> this.goTo('/checkout')}><Glyphicon glyph="shopping-cart"/>&nbsp;Cart</NavItem>
                     <NavItem eventKey={2} href="/about"><Glyphicon glyph="info-sign"/>&nbsp;About</NavItem>
                     <NavItem eventKey={1} href="/contact"><Glyphicon glyph="envelope"/>&nbsp;Contact</NavItem>
-                    <NavItem eventKey={5} onClick={()=> this.postItem()}><Glyphicon glyph="user"/>&nbsp;Post Item</NavItem>
+                    <NavItem eventKey={6} onClick={()=> this.postItem()}><Glyphicon glyph="upload"/>&nbsp;Post Item</NavItem>
                 </Nav>
             </Navbar>
         )
