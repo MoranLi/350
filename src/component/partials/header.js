@@ -35,8 +35,6 @@ export default class Header extends React.Component {
     postItem() {
         if(firebaseService.authService.currentUser) {
             window.location = '/post'
-
-            alert("Already log in as: "+firebaseService.authService.currentUser.email);
         } else {
             alert("Please log in first");
         }
